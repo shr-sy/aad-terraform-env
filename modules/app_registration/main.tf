@@ -5,11 +5,11 @@ resource "azuread_application" "app" {
 }
 
 resource "azuread_service_principal" "sp" {
-  application_id = azuread_application.app.application_id
+  client_id = azuread_application.app.client_id # ✅ replaced deprecated application_id
 }
 
 output "app_id" {
-  value = azuread_application.app.application_id
+  value = azuread_application.app.client_id # ✅ updated
 }
 
 output "sp_object_id" {
