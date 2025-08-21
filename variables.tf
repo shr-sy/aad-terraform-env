@@ -6,21 +6,23 @@ variable "app_display_name" {
 }
 
 variable "users" {
-  description = "Users to create in Azure AD."
+  description = "List of users to create in Azure AD"
   type = list(object({
     user_principal_name = string
     display_name        = string
+    mail_nickname       = string
     password            = string
   }))
   default = []
 }
 
 variable "groups" {
-  description = "Groups to create and their members by UPN."
+  description = "List of groups to create in Azure AD"
   type = list(object({
     display_name = string
     description  = optional(string)
-    members      = list(string) # list of UPNs
+    members      = list(string) # user principal names
   }))
   default = []
 }
+
