@@ -1,17 +1,3 @@
-# Provider auth (store as Sensitive Terraform vars in HCP)
-variable "client_id" {
-  type = string
-}
-
-variable "client_secret" {
-  type      = string
-  sensitive = true
-}
-
-variable "tenant_id" {
-  type = string
-}
-
 # App + directory data (set via tfvars per env)
 variable "app_display_name" {
   type        = string
